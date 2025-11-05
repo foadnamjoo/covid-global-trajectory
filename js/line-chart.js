@@ -74,12 +74,15 @@ class LineChart {
     this.color = d3.scaleOrdinal(d3.schemeTableau10);
 
 
-    this.svg.selectAll("text.x-label").data([null]).join("text")
-      .attr("class", "x-label")
-      .attr("x", this.margin.left + this.innerW / 2)
-      .attr("y", this.margin.top + this.innerH + 32)
-      .attr("text-anchor", "middle")
-      .text("Date");
+this.svg.selectAll("text.x-label").data([null]).join("text")
+  .attr("class", "x-label")
+  .attr("x", this.margin.left + this.innerW / 2)
+  .attr("y", this.margin.top + this.innerH + this.margin.bottom  +70)
+  .attr("text-anchor", "middle")
+  .attr("font-size", 14)
+  .attr("font-weight", 500)
+  .text("Date");
+
 
     this.svg.selectAll("text.y-label").data([null]).join("text")
       .attr("class", "y-label")

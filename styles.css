@@ -23,14 +23,31 @@
 }
 
 #map {
-    width: 850px;
-    height: 500px;
+    width: 950px;
+    height: 600px;
+    margin: 40px 60px;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    background-color: #fafafa;
+    display: block;
+    float: left;
 }
 
 #line-chart {
-    width: 700px;
-    height: 500px;
+    width: 950px;
+    height: 600px;
+    margin: 40px 60px;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    background-color: #fafafa;
+    display: block;
+    float: left;
 }
+
 
 
 #info-box {
