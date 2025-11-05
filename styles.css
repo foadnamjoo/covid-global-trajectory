@@ -4,14 +4,26 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* SVG and div styling */
 #content {
-    margin: auto;
-    width: 1550px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;               /* spacing between map and chart */
+    flex-wrap: wrap;         
+    margin: 50px auto;
+    width: fit-content;
+}
+
+#map, #line-chart {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    padding: 30px;
 }
 
 #map {
-    width: 800px;
+    width: 850px;
     height: 500px;
 }
 
@@ -20,13 +32,23 @@
     height: 500px;
 }
 
+
 #info-box {
-    margin: auto;
     width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    display: block;
 }
 
 .header {
     width: 600px;
+    padding: 50px;
     margin: auto;
     text-align: center;
     margin-bottom: 50px;
@@ -43,4 +65,32 @@
     stroke-width: 1px;
     stroke: black;
     stroke-opacity: 0.1;
+}
+
+
+/* --- Button styling --- */
+#clear-button {
+    display: block;
+    margin: 20px auto 60px auto;   /* center and add spacing */
+    padding: 10px 22px;
+    background-color: #007acc;     /* modern blue tone */
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#clear-button:hover {
+    background-color: #005fa3;     /* darker on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+#clear-button:active {
+    background-color: #004f8a;     /* pressed color */
+    transform: translateY(1px);
 }
