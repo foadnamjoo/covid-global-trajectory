@@ -3,36 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Visualization – Homework 4</title>
+    <title>Visualization – Homework 3</title>
 
     <link rel="stylesheet" href="styles.css" />
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v4.js"></script>
-    <script src="https://d3js.org/topojson.v3.js"></script>
-
-    <script src="js/line-chart.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js" defer></script>
+    <script src="https://d3js.org/d3-geo-projection.v4.js" defer></script>
+    <script src="https://d3js.org/topojson.v3.js" defer></script>
+    <script src="js/line-chart.js" defer></script>
+    <script src="js/map.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <div class="header">
         <h1>COVID-19 World Case Tracker</h1>
-        <p>Name: Your Name; E-Mail: Your E-Mail; UID: Your UID</p>
+        <p>Name: Foad Namjoo; E-Mail: foad.namjoo@utah.edu; UID: u1234567</p>
+
     </div>
 
     <div id="content">
-        <svg id="map">
+        <svg id="map" width="900" height="520">
             <g id="graticules"></g>
             <g id="countries"></g>
         </svg>
-        <svg id="line-chart">
+
+        <svg id="line-chart" width="900" height="400">
             <g id="x-axis"></g>
             <g id="y-axis"></g>
             <g id="lines"></g>
             <g id="overlay"><line></line></g>
         </svg>
+
         <button id="clear-button">Clear Selected Countries</button>
     </div>
 </body>

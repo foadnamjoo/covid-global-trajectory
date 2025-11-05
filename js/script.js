@@ -6,10 +6,6 @@ async function loadData () {
   return { covidData, mapData };
 }
 
-
-// ******* STATE MANAGEMENT *******
-// This should be all you need, but feel free to add to this if you need to 
-// communicate across the visualizations
 const globalApplicationState = {
   selectedLocations: [],
   covidData: null,
@@ -19,20 +15,34 @@ const globalApplicationState = {
 };
 
 
-//******* APPLICATION MOUNTING *******
 loadData().then((loadedData) => {
   console.log('Here is the imported data:', loadedData.covidData);
 
-  // Store the loaded data into the globalApplicationState
   globalApplicationState.covidData = loadedData.covidData;
   globalApplicationState.mapData = loadedData.mapData;
 
-  // Creates the view objects with the global state passed in 
   const worldMap = new MapVis(globalApplicationState);
   const lineChart = new LineChart(globalApplicationState);
 
   globalApplicationState.worldMap = worldMap;
   globalApplicationState.lineChart = lineChart;
 
-  //TODO add interactions for Clear Selected Countries button
+
+
+document.getElementById("clear-button").addEventListener("click", () => {
+  globalApplicationState.selectedLocations = [];
+
+  if (globalApplicationState.worldMap &&
+      typeof globalApplicationState.worldMap.updateSelectedCountries === "function") {
+    globalApplicationState.worldMap.updateSelectedCountries();
+  }
+
+  if (globalApplicationState.lineChart &&
+      typeof globalApplicationState.lineChart.updateSelectedCountries === "function") {
+    globalApplicationState.lineChart.updateSelectedCountries();
+  }
+});
+
+
+
 });
