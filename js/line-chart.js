@@ -15,7 +15,7 @@ class LineChart {
     const width  = +this.svg.attr("width");
     const height = +this.svg.attr("height");
 
-    this.margin = { top: 20, right: 20, bottom: 40, left: 80 };
+    this.margin = { top: 8, right: 32, bottom: 6, left: 78 };
     this.innerW = width  - this.margin.left - this.margin.right;
     this.innerH = height - this.margin.top  - this.margin.bottom;
 

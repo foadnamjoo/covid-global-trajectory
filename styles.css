@@ -94,3 +94,38 @@
     background-color: #004f8a;     /* pressed color */
     transform: translateY(1px);
 }
+
+
+
+/* --- Header styling --- */
+.header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #007acc;  /* accent line under title */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #222;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.header p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #555;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    padding-top: 6px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
