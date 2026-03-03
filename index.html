@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Visualization – Homework 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Global trajectory of COVID‑19</title>
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -11,32 +12,74 @@
     <script src="https://d3js.org/d3-geo-projection.v4.js" defer></script>
     <script src="https://d3js.org/topojson.v3.js" defer></script>
     <script src="js/line-chart.js" defer></script>
+    <script src="js/population-chart.js" defer></script>
     <script src="js/map.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <div class="header">
-        <h1>COVID-19 World Case Tracker</h1>
-        <p>Name: Foad Namjoo; E-Mail: foad.namjoo@utah.edu; UID: u1419668</p>
+    <section id="info-box" class="info-box-hidden" aria-hidden="true">
+        <button type="button" id="info-close" class="info-close" aria-label="Close">×</button>
+        <div class="info-text">
+            <p>This interactive visualization combines a choropleth world map with a time‑series line chart to reveal how COVID‑19 spread across countries and continents.</p>
+            <p>Click on a country on the map to compare its trend in the line chart.</p>
+            <p>Hover over the map to see each country's peak cases per million.</p>
+            <p>Move your mouse over the line chart to inspect exact values over time.</p>
+            <p>Clear the selection to empty the chart. Use &quot;Select all&quot; or pick countries to see trends.</p>
+        </div>
+    </section>
 
-    </div>
+    <main id="content">
+        <div class="viz-wrap">
+            <h1 class="viz-title">Global trajectory of COVID‑19</h1>
+            <div class="country-panel">
+                <div class="country-select-row">
+                    <span class="panel-label">Select countries:</span>
+                    <div class="country-search-wrap">
+                        <input type="text" id="country-search" class="country-search" placeholder="Type to search..." autocomplete="off">
+                        <div id="country-dropdown" class="country-dropdown" aria-hidden="true"></div>
+                    </div>
+                    <button type="button" id="select-all-btn" class="panel-btn">Select all</button>
+                    <button type="button" id="clear-select-btn" class="panel-btn">Clear Selected Countries</button>
+                    <span id="selected-count" class="selected-count"></span>
+                    <span class="panel-sep"></span>
+                    <label class="dropdown-label">Map: <select id="map-type" class="dropdown">
+                        <option value="naturalEarth">Natural Earth</option>
+                        <option value="equirectangular">Equirectangular</option>
+                        <option value="globe">Earth globe</option>
+                    </select></label>
+                    <button type="button" id="help-button" class="help-button" aria-expanded="false" aria-controls="info-box">How to use</button>
+                </div>
+            </div>
+            <div class="viz-row" id="viz-row">
+                <svg id="map" width="720" height="720">
+                    <g id="graticules"></g>
+                    <g id="countries"></g>
+                </svg>
+                <div id="chart-wrap" class="chart-wrap" aria-hidden="true">
+                    <div class="charts-column">
+                        <svg id="line-chart" width="860" height="360">
+                            <g id="x-axis"></g>
+                            <g id="y-axis"></g>
+                            <g id="lines"></g>
+                            <g id="overlay"><line></line></g>
+                        </svg>
+                        <div class="population-chart-container">
+                            <h3 class="population-chart-title">Country population</h3>
+                            <svg id="population-chart" width="860" height="220">
+                                <g id="population-bars"></g>
+                                <g id="population-axis"></g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div id="content">
-        <svg id="map" width="900" height="520">
-            <g id="graticules"></g>
-            <g id="countries"></g>
-        </svg>
+            <button id="clear-button">Clear Selected Countries</button>
+        </div>
+    </main>
 
-        <svg id="line-chart" width="900" height="400">
-            <g id="x-axis"></g>
-            <g id="y-axis"></g>
-            <g id="lines"></g>
-            <g id="overlay"><line></line></g>
-        </svg>
-
-        <button id="clear-button">Clear Selected Countries</button>
-    </div>
+    <div id="tooltip" class="tooltip"></div>
 </body>
 
 </html>
