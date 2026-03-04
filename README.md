@@ -3,7 +3,7 @@ Global trajectory of COVID‑19
 
 An interactive D3.js visualization that combines a **choropleth world map / 3D globe** with **time‑series and population plots** to show how COVID‑19 spread across countries.
 
-![Interactive COVID‑19 visualization](assets/demo.gif)
+<img src="assets/demo.gif" width="900" alt="Interactive COVID‑19 visualization" />
 
 Features
 --------
